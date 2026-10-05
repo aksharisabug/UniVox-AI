@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniVox</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"
+          fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"
+          fill="none" stroke="currentColor" stroke-width="1.7"/>
+      </svg>
+    </div>
+    <span>UniVox</span>
+  </div>
+
+  <div class="online-status">
+    <span class="status-dot"></span>
+    Online
+  </div>
+</header>
+
+
+<main class="container">
+
+  <section class="hero">
+    <p class="eyebrow">LANGUAGE COMMUNICATION</p>
+
+    <h1>
+      Speak freely.
+      <span>Understand everyone.</span>
+    </h1>
+
+    <p class="hero-text">
+      Translate languages instantly or start a real-time conversation.
+    </p>
+  </section>
+
+
+  <!-- MODE SWITCH -->
+
+  <section class="mode-switch">
+
+    <button
+      id="translatorModeBtn"
+      class="mode-button active"
+      type="button">
+      Translator
+    </button>
+
+    <button
+      id="conversationModeBtn"
+      class="mode-button"
+      type="button">
+      Conversation
+    </button>
+
+  </section>
+
+
+  <!-- =========================
+       TRANSLATOR MODE
+  ========================== -->
+
+  <section id="translatorPanel" class="panel">
+
+    <div class="language-row">
+
+      <div class="language-card">
+
+        <label for="fromLanguage">
+          From
+        </label>
+
+        <select id="fromLanguage">
+
+          <option value="hi">Hindi</option>
+          <option value="bn">Bengali</option>
+          <option value="sa">Sanskrit</option>
+          <option value="ja">Japanese</option>
+          <option value="ko">Korean</option>
+          <option value="zh-CN">Chinese</option>
+          <option value="fr">French</option>
+          <option value="es">Spanish</option>
+          <option value="de">German</option>
+          <option value="en">English</option>
+
+        </select>
+
+      </div>
+
+
+      <button
+        id="swapBtn"
+        class="swap-button"
+        type="button">
+
+        <svg width="22" height="22" viewBox="0 0 24 24">
+
+          <path
+            d="M7 7h12l-3-3"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+          <path
+            d="M17 17H5l3 3"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        </svg>
+
+      </button>
+
+
+      <div class="language-card">
+
+        <label for="toLanguage">
+          To
+        </label>
+
+        <select id="toLanguage">
+
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+          <option value="bn">Bengali</option>
+          <option value="sa">Sanskrit</option>
+          <option value="ja">Japanese</option>
+          <option value="ko">Korean</option>
+          <option value="zh-CN">Chinese</option>
+          <option value="fr">French</option>
+          <option value="es">Spanish</option>
+          <option value="de">German</option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <div class="translation-grid">
+
+      <div class="text-panel">
+
+        <div class="panel-heading">
+          <span id="inputTitle">
+            Hindi
+          </span>
+        </div>
+
+        <textarea
+          id="inputText"
+          placeholder="Type your message here..."></textarea>
+
+        <div class="panel-actions">
+
+          <button
+            id="voiceBtn"
+            class="action-button"
+            type="button">
+            Speak
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="text-panel">
+
+        <div class="panel-heading">
+          <span id="outputTitle">
+            English
+          </span>
+        </div>
+
+        <div
+          id="outputText"
+          class="output-box">
+          Your translation will appear here.
+        </div>
+
+        <div class="panel-actions">
+
+          <button
+            id="speakBtn"
+            class="action-button"
+            type="button">
+            Speak Translation
+          </button>
+
+          <button
+            id="stopBtn"
+            class="action-button"
+            type="button">
+            Stop
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <button
+      id="translateBtn"
+      class="primary-button"
+      type="button">
+
+      <span>Translate</span>
+      <span class="button-arrow">→</span>
+
+    </button>
+
+  </section>
+
+
+  <!-- =========================
+       CONVERSATION MODE
+  ========================== -->
+
+  <section
+    id="conversationPanel"
+    class="panel hidden">
+
+    <div class="conversation-header">
+
+      <p class="eyebrow">
+        REAL-TIME CONVERSATION
+      </p>
+
+      <h2>
+        Talk naturally
+      </h2>
+
+      <p>
+        Start once. UniVox keeps listening,
+        translating and speaking automatically.
+      </p>
+
+    </div>
+
+
+    <div class="conversation-language-row">
+
+      <div class="language-card">
+
+        <label for="conversationFrom">
+          Person A
+        </label>
+
+        <select id="conversationFrom">
+
+          <option value="hi">
+            Hindi
+          </option>
+
+          <option value="en">
+            English
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="conversation-arrow">
+
+        <svg width="30" height="30" viewBox="0 0 24 24">
+
+          <path
+            d="M5 8h14"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"/>
+
+          <path
+            d="M15 4l4 4-4 4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"/>
+
+          <path
+            d="M19 16H5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"/>
+
+          <path
+            d="M9 12l-4 4 4 4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"/>
+
+        </svg>
+
+      </div>
+
+
+      <div class="language-card">
+
+        <label for="conversationTo">
+          Person B
+        </label>
+
+        <select id="conversationTo">
+
+          <option value="en">
+            English
+          </option>
+
+          <option value="hi">
+            Hindi
+          </option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <div class="conversation-body">
+
+      <div
+        id="conversationStatus"
+        class="conversation-status">
+        Ready to start.
+      </div>
+
+
+      <div
+        id="conversationLog"
+        class="conversation-log">
+
+        <div class="empty-conversation">
+          Start the conversation and speak normally.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="conversation-controls">
+
+      <button
+        id="startConversationBtn"
+        class="primary-button conversation-start"
+        type="button">
+
+        <span>Start Conversation</span>
+        <span class="button-arrow">→</span>
+
+      </button>
+
+
+      <button
+        id="stopConversationBtn"
+        class="action-button conversation-stop"
+        type="button"
+        disabled>
+
+        Stop Conversation
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <section class="features">
+
+    <div class="feature-card">
+      <h3>Multiple Languages</h3>
+      <p>Translate between supported languages.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Voice Input</h3>
+      <p>Speak instead of typing.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Live Conversation</h3>
+      <p>Talk naturally with another person.</p>
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  <p>UniVox — Breaking language barriers.</p>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
